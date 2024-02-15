@@ -25,6 +25,8 @@ services:
       timeout: 3s
       retries: 30
     volumes:
-      - ./docker-data/db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+volumes:
+  postgres_data:
