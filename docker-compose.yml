@@ -5,6 +5,10 @@ services:
     container_name: next
     image: cedo/next
     build: .
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
     ports:
       - "3001:3000"
   db:
@@ -20,5 +24,7 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+    volumes:
+      - ./docker-data/db:/var/lib/postgresql/data
     ports:
       - "5432:5432"
