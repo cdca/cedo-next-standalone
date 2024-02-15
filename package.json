@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "docker compose build",
+    "docker:up": "docker compose up"
   },
   "dependencies": {
     "react": "^18",
