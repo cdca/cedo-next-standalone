@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Links
 
-## Getting Started
+This repo is live on: [https://next-standalone-demo.cedo.dev/](https://next-standalone-demo.cedo.dev/) (Hosted on a VM with a reverse proxy. Created basic example for adding users.)  
+This repo is part of: [https://www.cedo.dev/blog/deploy-next-standalone-with-postgres-prisma-and-docker](https://www.cedo.dev/blog/deploy-next-standalone-with-postgres-prisma-and-docker)
 
-First, run the development server:
+## Build steps
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+First, you have to build the Next image
+
+```docker
+docker compose build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+After that, run the containers
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```docker
+docker compose up
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## More info
 
-## Learn More
+If you want to run this from the VM, you have to setup network between the Next and database container.  
+Also, this setup is working with dynamic rendering because database is not up when you are building the Next image, so you can't have static pages.
 
-To learn more about Next.js, take a look at the following resources:
+## Questions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have any questions you can write them in the comment section under the post.
